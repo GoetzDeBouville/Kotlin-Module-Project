@@ -1,14 +1,14 @@
-class NoteViewScreen(private val note: String) : Screen<Any?>() {
+class NoteViewScreen(private val note: Note) : Screen<Any?>() {
     override fun show() {
-        println(note)
-        println(archives[currentArchive]?.get(note) ?: "Текст заметки отсутствует")
+        println(note.content)
 
         while (true) {
             println("0. Удалить\n1. Назад")
             print("Выберите пункт меню: ")
             when (scanner.nextLine().toIntOrNull()) {
                 0 -> {
-                    archives[currentArchive]?.remove(note)
+                    currentArchive?.let { archives[it]?.remove(note.key) }
+                    println("Заметка удалена")
                     return
                 }
                 1 -> return

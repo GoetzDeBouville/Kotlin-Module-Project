@@ -1,9 +1,9 @@
-class NoteSelectionScreen : SelectionScreen<String>() {
-    override fun getItems(): Map<String, String> {
-        return archives[currentArchive] ?: emptyMap()
+class NoteSelectionScreen : SelectionScreen<Note>() {
+    override fun getItems(): Map<String, Note> {
+        return archives[currentArchive]?.mapValues { Note(it.key, it.value) } ?: emptyMap()
     }
 
-    override fun onItemSelected(item: String) {
+    override fun onItemSelected(item: Note) {
         NoteViewScreen(item).show()
     }
 }

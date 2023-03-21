@@ -1,3 +1,5 @@
+import kotlin.system.exitProcess
+
 class MainMenu : Screen<Any?>() {
     override fun show() {
         while (true) {
@@ -6,7 +8,7 @@ class MainMenu : Screen<Any?>() {
             when (scanner.nextLine().toIntOrNull()) {
                 1 -> ArchiveSelectionScreen().show()
                 2 -> ArchiveCreationScreen().show()
-                3 -> return
+                3 -> exitProcess(0)
                 else -> println("Неверный выбор. Пожалуйста, попробуйте снова.")
             }
         }
