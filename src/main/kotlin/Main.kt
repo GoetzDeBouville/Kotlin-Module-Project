@@ -1,5 +1,14 @@
+import java.util.*
+
+val scanner = Scanner(System.`in`)
+val archives = mutableMapOf<String, MutableMap<String, String>>()
+var currentArchive: String? = null
+
 fun main() {
-    // ваш код начнется здесь
-    // вы не должны ограничиваться только классом Main и можете создавать свои классы по необходимости
-    println("Привет")
+    val mainMenu = MainMenu()
+    mainMenu.show()
+}
+
+abstract class Screen<T> {
+    abstract fun show()
 }
