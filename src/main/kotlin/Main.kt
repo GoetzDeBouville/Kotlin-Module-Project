@@ -8,7 +8,3 @@ fun main() {
     val mainMenu = MainMenu()
     mainMenu.show()
 }
-
-abstract class Screen<T> {
-    abstract fun show()
-}

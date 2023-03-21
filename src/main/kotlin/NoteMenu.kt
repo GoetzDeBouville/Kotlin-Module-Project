@@ -3,8 +3,7 @@ class NoteMenu : Screen<Any?>() {
         while (true) {
             println("Меню заметок:\n0. Удалить архив\n1. Список заметок\n2. Создать заметку\n3. Назад")
             print("Выберите пункт меню: ")
-            val choice = scanner.nextLine().toIntOrNull()
-            when (choice) {
+            when (scanner.nextLine().toIntOrNull()) {
                 0 -> deleteArchive()
                 1 -> NoteSelectionScreen().show()
                 2 -> NoteCreationScreen().show()

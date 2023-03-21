@@ -4,18 +4,14 @@ class NoteViewScreen(private val note: String) : Screen<Any?>() {
         println(archives[currentArchive]?.get(note) ?: "Текст заметки отсутствует")
 
         while (true) {
-            println("1. Редактировать")
-            println("2. Удалить")
-            println("3. Назад")
+            println("0. Удалить\n1. Назад")
             print("Выберите пункт меню: ")
-            val choice = scanner.nextLine().toIntOrNull()
-            when (choice) {
-                1 -> NoteEditScreen(note).show()
-                2 -> {
+            when (scanner.nextLine().toIntOrNull()) {
+                0 -> {
                     archives[currentArchive]?.remove(note)
                     return
                 }
-                3 -> return
+                1 -> return
                 else -> println("Неверный выбор. Пожалуйста, попробуйте снова.")
             }
         }
